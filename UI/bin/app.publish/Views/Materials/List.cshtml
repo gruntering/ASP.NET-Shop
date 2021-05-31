@@ -1,0 +1,16 @@
+﻿@using UI.Models
+@model MaterialsViewModel
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Materials";
+}
+
+@foreach (var material in Model.Materials)
+{
+    @Html.Partial("_MaterialSumm", material)
+}
+
+<div class="btn-group pull right">
+    @Html.PageLinks(Model.PagesInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>

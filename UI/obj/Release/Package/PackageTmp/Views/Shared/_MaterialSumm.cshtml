@@ -1,0 +1,65 @@
+﻿@model Hub.Material
+
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div class="well">
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img class="img-thumbnail" width="75" height="75"
+                 src="@Url.Action("GetImage", "Materials",
+ new { Model.MaterialID })" />
+        </div>
+    }
+    <div class="row">
+
+        <div class="col-xs-9">
+            <h3>
+
+                <strong>@Model.Name - @Model.Subject </strong>
+            </h3>
+            <h4>
+
+                <strong>@Model.Author</strong>
+
+            </h4>
+
+
+
+        </div>
+
+        <div class="col-xs-3">
+            <div class="text-right">
+                <h3>
+                    <strong class="purl-right">
+                        @Model.Cost.ToString("# UAH")
+                    </strong>
+
+                </h3>
+            </div>
+            <!--Generates Another HTML file with the ShoppingBasket-->
+            @using (Html.BeginForm("AddItemToBasket", "Basket"))
+            {
+                <div class="pull-right">
+                    <i class="fa fa-shopping-cart"></i>
+                    @Html.HiddenFor(x => x.MaterialID)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
+
+                    <input type="submit" class="buyNow" value="Buy Now" />
+
+                </div>
+            }
+        </div>
+
+
+    </div>
+    <span class="lead">
+        @Model.Portrayal
+
+    </span>
+
+</div>
+<hr />
+<script src="~/Scripts/myjs.js"></script>

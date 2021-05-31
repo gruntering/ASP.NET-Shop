@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/materialsdbserver/databases/UI_db",
+      "type": "mssql.azure",
+      "connectionId": "EFDbContext",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/logindatabasedbserver/databases/LoginDataBase",
+      "type": "mssql.azure",
+      "connectionId": "LoginDataBaseEntities",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

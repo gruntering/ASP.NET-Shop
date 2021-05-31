@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hub", "Hub\Hub.csproj", "{9EC37C3A-72EF-4637-91AD-B6F99BDD533D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{2F2E1339-9011-402F-8563-900A0D5A7722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EC37C3A-72EF-4637-91AD-B6F99BDD533D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC37C3A-72EF-4637-91AD-B6F99BDD533D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC37C3A-72EF-4637-91AD-B6F99BDD533D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC37C3A-72EF-4637-91AD-B6F99BDD533D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2E1339-9011-402F-8563-900A0D5A7722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2E1339-9011-402F-8563-900A0D5A7722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2E1339-9011-402F-8563-900A0D5A7722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2E1339-9011-402F-8563-900A0D5A7722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A9113A0-5AC9-4437-A659-BFF586E93594}
+	EndGlobalSection
+EndGlobal

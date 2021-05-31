@@ -1,0 +1,30 @@
+﻿@model Hub.Material
+
+<div data-role="collapsible" data-collapsed="false" data-content-theme="c">
+    <h2>@Model.Name</h2>
+    <h3>@Model.Author</h3>
+
+    <div>
+
+        <div>
+            @Model.Portrayal
+        </div>
+        <div>
+            <strong>@Model.Cost.ToString("# UAH") </strong>
+        </div>
+        <div>
+            @using (Html.BeginForm("AddItemToBasket", "Basket"))
+            {
+                @Html.HiddenFor(x=>x.MaterialID)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Buy Now" />
+            }
+        </div>
+    </div>
+
+
+
+
+</div>
+
+

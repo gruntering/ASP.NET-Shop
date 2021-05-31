@@ -1,0 +1,97 @@
+﻿@model Hub.Material
+<link href="~/Content/Site.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Edit Page";
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+
+        <h2>Provide Required Changes</h2>
+
+
+    </div>
+
+    @using (Html.BeginForm("Edit", "Administrator",
+        FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="edit_panelbody" class="panel-body">
+
+            @Html.HiddenFor(x => x.MaterialID)
+            @foreach (var item in ViewData.ModelMetadata.Properties)
+            {
+                switch (item.PropertyName)
+                {
+                    case "MaterialID":
+                    case "ImageData":
+                    case "ImageMimeType":
+                        break;
+
+                    default:
+                        <div class="form-group">
+                            <label class="text-primary"><strong>@(item.DisplayName ?? item.PropertyName)</strong></label>
+                            @if (item.PropertyName == "Portrayal")
+                            {
+                                @Html.TextArea(item.PropertyName, null, new { @class = "form-control", rows = 5 })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox(item.PropertyName, null, new { @class = "form-control" })
+
+                            }
+
+                            @Html.ValidationMessage(item.PropertyName)
+
+                        </div>
+                        break;
+                }
+            }
+
+            <div class="form-group">
+                <div style="position:relative;">
+                    <label>Image</label>
+                    <a class='btn' href='javascript:;'>
+                        Choose File...
+                        <input type="file" name="Image" size="40"
+                               style="position:absolute;z-index:2;top:0;
+                                left:0;filter: alpha(opacity=0); opacity:0;
+                               background-color:transparent;color:transparent;"
+                               onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class='label label-info' id="upload-file-info"></span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">No Image</div>
+
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150"
+                         src="@Url.Action("GetImage", "Materials",
+new { Model.MaterialID })" />
+                }
+            </div>
+
+
+
+
+        </div>
+
+
+        <div id="edit_footer" class="panel-footer">
+
+            <input class="btn btn-success" type="submit" value="Save" />
+            @Html.ActionLink("Decline", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+
+
+
+
+
+
+</div>
+

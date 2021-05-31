@@ -1,0 +1,77 @@
+﻿@model UI.Models.BasketIndexViewModel
+
+@{
+    ViewBag.Title = "Your Basket Case";
+}
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<h1 class="basketTitle">@ViewBag.Title</h1>
+
+<table id="basketTable" class="table">
+    <thead>
+        <tr>
+            <th> Amount</th>
+            <th> Subject</th>
+            <th> Name</th>
+            <th class="text-right"> Price</th>
+            <th class="text-right"> Total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var list in Model.Basket.Procedures)
+
+        {
+            <tr>
+                <td class="text-left">@list.Amount</td>
+                <td class="text-left">@list.Material.Subject</td>
+                <td class="text-left">@list.Material.Name</td>
+                <td class="text-right">@list.Material.Cost.ToString("# UAH")</td>
+                <td class="text-right">@((list.Amount* list.Material.Cost).ToString("# UAH"))</td>
+
+
+                @using (Html.BeginForm("DeleteItemFromBasket", "Basket"))
+                {
+                    @Html.Hidden("MaterialID", list.Material.MaterialID)
+                    @Html.HiddenFor(m => m.ReturnUrl)
+                    <td> <input class=" btn btn-sm btn-danger" type="submit" value="Delete" /> </td>
+
+                }
+
+
+
+
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-right">Overall: </td>
+            <td class="text-right">
+                @Model.Basket.CountTotalCost().ToString("# UAH")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="under_container">
+    @Html.ActionLink("Proceed Shopping", "List", "Materials", null, new { @class = "btn btn-primary" })
+
+ 
+    @using (Html.BeginForm("EraseAllItems", "Basket"))
+    {
+
+        @Html.HiddenFor(m => m.ReturnUrl)
+        <input class=" btn btn-danger" type="submit" value="Delete All Items" />
+
+
+    }
+    @Html.ActionLink("Complete Order", "Order", null, new { @class = "btn btn-success" })
+
+
+
+</div>
+
+
+

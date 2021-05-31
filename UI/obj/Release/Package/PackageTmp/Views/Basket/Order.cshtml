@@ -1,0 +1,80 @@
+﻿@model Hub.Tables.OrderDetails
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h1><strong>Checkout</strong></h1>
+<p>
+    <h3>
+        <strong>Please, Enter Your Credentials </strong>
+    </h3>
+
+</p>
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+
+        @Html.ValidationSummary();
+
+        //Name and Surname
+        <h2>Details</h2>
+        <div class="form-group">
+            <label>Your Name:</label>
+            <i class="fa fa-user"></i>
+            <input placeholder="John" @Html.TextBoxFor(n => n.Name, new { @class = "form control" })
+        </div>
+
+        <div class="form-group">
+            <label>Your Surname:</label>
+            <i class="fa fa-user"></i>
+            <input placeholder="Smith" @Html.TextBoxFor(s => s.Surname, new { @class = "form control" })
+        </div>
+
+        <div class="form-group">
+            <label>Your Email:</label>
+            <i class="fa fa-envelope"></i>
+            <input placeholder="something@example.com" @Html.TextBoxFor(n => n.Email, new { @class = "form control" })
+
+        </div>
+
+        //Adress
+        <h2>Address</h2>
+        <div class="form-group">
+            <label>Your Address:</label>
+            <i class="fa fa-address-card-o"></i>
+            <input placeholder="542 W. 15th Street" @Html.TextBoxFor(a => a.Address, new { @class = "form control" })
+        </div>
+
+        <div class="form-group">
+            <label>Country:</label>
+            <i class="fa fa-institution"></i>
+            <input placeholder="America" @Html.TextBoxFor(c => c.Country, new { @class = "form control" })
+        </div>
+
+        <div class="form-group">
+            <label>City:</label>
+            <i class="fa fa-institution"></i>
+            <input placeholder="Los Angeles" @Html.TextBoxFor(c => c.City, new { @class = "form control" })
+        </div>
+
+
+        //Are You A Student?
+        <h3>Optionality</h3>
+        <div class="form-group">
+            <label>
+                Are You a Student ? @Html.EditorFor(o => o.StudentCheck)
+            </label>
+        </div>
+
+        <div class="text-center">
+
+            <input class="btn btn-success" type="submit" value="Finish" />
+
+        </div>
+
+    }
+</div>
+
