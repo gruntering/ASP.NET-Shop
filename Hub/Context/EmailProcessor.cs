@@ -16,14 +16,12 @@ namespace Hub.Context
     //This Class is responible for sending emails both for the customers and admin of the website
     public class EmailSettings:OrderDetails
     {
-        public string adminAddress = "trolll257@gmail.com";
-        public string MailFromAddress = "noreplybotmaterials@gmail.com";
+        public string adminAddress = "";
+        public string MailFromAddress = "";
         public bool UseSsl = true;
         public string ServerName = "smtp.gmail.com";
-        //public string Username= "noreplybotmaterials@gmail.com";
-        //public string Password= "noreplybotmat123321";
-        public string Username = "noreplybotstudmaterials@gmail.com";
-        public string Password= "botmaterials123";
+        public string Username = "";
+        public string Password= "";
         public int ServerPort = 587;
         public bool WriteAsFile = false;
         // For Offline Storage 
